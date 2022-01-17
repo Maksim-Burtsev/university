@@ -30,6 +30,8 @@ def consider_a_b():
 x_i = [i for i in range(1, 15)]
 y_i = [i**3 if i%2 == 1 else i**2 for i in x_i]
 
+# y_i = [i**2 + random.randint(0, i**2) for i in x_i]
+
 N = len(x_i)
 
 a_new, b_new = consider_a_b()
@@ -40,7 +42,7 @@ plt.plot(n_array, f_new)
 plt.show()
 
 def n_1():
-    N = 20    # число экспериментов
+    N = 100    # число экспериментов
     sigma = 3   # стандартное отклонение наблюдаемых значений
     k = 0.5     # теоретическое значение параметра k
     b = 2       # теоретическое значение параметра b
@@ -61,7 +63,7 @@ def n_1():
     ff = np.array([kk*z+bb for z in range(N)])
 
     plt.scatter(x, y, s=2, c='red')
-    plt.plot(f)
+    # plt.plot(f)
     plt.plot(ff, c='red')
     plt.grid(True)
     plt.show()
