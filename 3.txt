@@ -1,0 +1,13 @@
+PREDICATES
+for(integer, integer).
+ 
+CLAUSES
+
+for(1,1):-!.
+for(N,R):-
+	N1=N-1,
+	for(N1,R1),
+	R=N+R1.
+	 
+GOAL
+for(10, R), nl.
