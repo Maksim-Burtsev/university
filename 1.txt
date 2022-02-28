@@ -1,0 +1,22 @@
+PREDICATES
+nondeterm child(symbol, symbol).
+
+
+CLAUSES
+
+child(sofia, maria).
+child(sofia, elena).
+child(grigoriy, ivan).
+child(ivan, alexandr).
+child(grigoriy, alexey).
+child(ivan, petr).
+child(maria, svetlana).
+child(maria, olesya).
+
+child(ivan, R) :-
+	child(sofia, R).
+
+GOAL
+child(ivan, X).
+
+
