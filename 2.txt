@@ -1,0 +1,19 @@
+PREDICATES
+negativeNums(integer, integer, integer, integer, integer)
+add_neg(integer, integer)
+ 
+CLAUSES
+negativeNums(A, B, C, D, Res) :-
+    add_neg(A, AN),
+    add_neg(B, BN),
+    add_neg(C, CN),
+    add_neg(D, DN),
+    Res = AN + BN + CN + DN.
+    %write(res), nl
+ 
+add_neg(N, 1) :-
+    N < 0, !.
+add_neg(_, 0).
+ 
+GOAL
+    negativeNums(1, -2, -3, -2,Res).
