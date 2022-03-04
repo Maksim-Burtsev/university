@@ -1,0 +1,24 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{% static 'main/style.css' %}">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4 задание</title>
+</head>
+<body>
+
+    {% for phone in phones%}
+    <div class="product-item">
+        <img src="{{phone.photo_link}}">
+        <div class="product-list">
+          <h3>{{phone.producer}} {{phone.model}}</h3>
+            <span class="price">{{phone.height}}x{{phone.width}}</span>
+            <a href="" class="button">В корзину</a>
+        </div>
+    {% endfor %}
+</body>
+</html>
