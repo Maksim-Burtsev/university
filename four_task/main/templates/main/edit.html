@@ -10,25 +10,17 @@
     <title>4 задание</title>
 </head>
 <body>
-    <form method="GET" action="{% url 'home' %}" id="searchform">
-        <input class="searchfield" id="searchbox" name="query" type="text" value="query" placeholder="Search..."/>    
-        <button type="submit">Search</button>
-    </form><br><br>
-
-    {% for phone in phones%}
+    <p style="font-size:21px;"><a href="{% url 'home'%}">Вернуться на главную</a></p>
     <div class="product-item">
         <img src="{{phone.photo_link}}">
         <div class="product-list">
           <h3>{{phone.producer}} {{phone.model}}</h3>
             <span class="price">Расширение экрана: {{phone.height}}x{{phone.width}}</span>
-            <a href="{{phone.get_absolute_url}}" class="button">Редактировать</a>
         </div>
-    {% endfor %}
-    
-    <form action="{% url  'home' %}" method="post">
-        {% csrf_token %}
-    {{form.as_p}}
-    <button type="submit">Создать</button>
+        <form action="{{post.get_absolute_url}}" method="post">
+            {% csrf_token %}
+        {{form.as_p}}
+        <button type="submit">Изменить</button>
     </form>
 </body>
 </html>
