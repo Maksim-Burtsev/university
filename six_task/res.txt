@@ -1,0 +1,45 @@
+.. 
+
+
+begin maxX := PaintBox1.Width;
+ maxY := PaintBox1.Height;
+ // Количество повторений for i := 1 to 20 do begin // Определение цвета досок забора PaintBox1.Canvas.Brush.Color := RGBToColor(200,160,0);
+ // Отрисовка досок забора PaintBox1.Canvas.Rectangle(i*20, maxY, 19 + i*20, maxY-80);
+ // Верхняя шапка забора PaintBox1.Canvas.Polygon([Point(i*20, maxY-80), Point(10 + i*20, maxY-95), Point(19 + i*20, maxY-80)]);
+ // Круглые отверстия в шапке PaintBox1.Canvas.Brush.Color := clWhite;
+ PaintBox1.Canvas.Ellipse(7 + i*20, maxY-82, 13 + i*20, maxY-88);
+ end;
+ // Поперечные перекладины PaintBox1.Canvas.Brush.Color := RGBToColor(200,200,0);
+ PaintBox1.Canvas.Rectangle(0, maxY-20, 620, maxY-25);
+ PaintBox1.Canvas.Rectangle(0, maxY-55, 620, maxY-60);
+ end;
+
+
+begin // Определение цвета досок забора PaintBox1.Canvas.Brush.Color := RGBToColor(200,160,0);
+ // Отрисовка досок забора PaintBox1.Canvas.Rectangle(i*20, maxY, 19 + i*20, maxY-80);
+ // Верхняя шапка забора PaintBox1.Canvas.Polygon([Point(i*20, maxY-80), Point(10 + i*20, maxY-95), Point(19 + i*20, maxY-80)]);
+ // Круглые отверстия в шапке PaintBox1.Canvas.Brush.Color := clWhite;
+ PaintBox1.Canvas.Ellipse(7 + i*20, maxY-82, 13 + i*20, maxY-88);
+ end;
+
+
+begin maxX := PaintBox1.Width;
+ maxY := PaintBox1.Height;
+ // Построение паруса PaintBox1.Canvas.Brush.Color := clYellow;
+ PaintBox1.Canvas.Polygon([Point(250,maxY-35), Point(280, maxY-250), Point(150, maxY-65)]);
+ // Построение корпуса лодки PaintBox1.Canvas.Brush.Color := RGBToColor(150, 150, 0);
+ PaintBox1.Canvas.Polygon([Point(50,maxY-25), Point(300,maxY-25), Point(340,maxY-50)]);
+ // Построение волн в виде полуокружностей. PaintBox1.Canvas.Brush.Color := clBlue;
+ x:=0;
+ while x &lt;
+ maxX do begin PaintBox1.Canvas.Pie(0 + x, maxY, 40 + x, maxY-30, 40 + x, maxY-15, 0 + x, maxY-15 );
+ x := x+30;
+ end;
+ end;
+
+
+begin PaintBox1.Canvas.Pie(0 + x, maxY, 40 + x, maxY-30, 40 + x, maxY-15, 0 + x, maxY-15 );
+ x := x+30;
+ end;
+
+

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2 задание</title>
+</head>
+<body>
+    <div style="font-size:20px;">
+        {% for product in products %}
+            <p>{{product.name}} {{product.price}}</p>
+        {% endfor %}
+
+        {% if flag %}
+        <form action="{% url 'home' %}" method="post">
+            {% csrf_token %}
+            <div>
+              <button style="font-size:20px;">5 самых дорогих продуктов</button>
+            </div>
+          </form>
+        {% else %}
+        <a href="{% url 'home' %}" style="font-size:20px;">Назад</a>
+        {% endif %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        TABLE {
+         border-collapse: collapse; 
+        }
+        TH { 
+         background: rgb(255, 255, 255); /* Цвет фона ячейки */
+         text-align: center; /* Выравнивание по левому краю */
+        }
+        TD {
+         background: #fff; /* Цвет фона ячеек */
+         text-align: center; /* Выравнивание по центру */
+        }
+        TH, TD {
+         border: 1px solid black; /* Параметры рамки */
+         padding: 4px; /* Поля вокруг текста */
+        }
+       </style>
+</head>
+<body>
+    <table>
+        <tr>
+        {% for cat in cats %}
+            <td>
+                {% for nums in cat.nums.all %}
+                    <p>{{nums.first_num}} x {{nums.secont_num}} = {{nums.res_multiply}}</p>
+                {% endfor %}
+            </td>
+        {% endfor %}
+        </tr>
+        
+       </table>
+    
+</body>
+</html>
