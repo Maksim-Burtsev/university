@@ -9,12 +9,13 @@
 <body>
     <form action="{% url 'home' %}" method="post">
         {% csrf_token %}
-        <p><strong>Ваш город</strong></p>
-        <p><input maxlength="25" size="40" value="" name="city"></p>
-        <p><strong>Ваш возраст</strong></p>
-        <p><input maxlength="25" size="40" value="" name="age"></p>
+        <p><strong>Имя</strong></p>
+        <p><input maxlength="25" size="40" value="" name="name"></p>
+        <p><strong>Возраст</strong></p>
+        <p><input maxlength="25" size="40" value="{{age}}" name="age"></p>
+        <p><strong>Город</strong></p>
+        <p><input maxlength="25" size="40" value="{{city}}" name="city"></p>
         <button type="submit">Отправить</button>
     </form>
-   
 </body>
 </html>
