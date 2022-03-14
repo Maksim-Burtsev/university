@@ -1,0 +1,66 @@
+domains
+list=integer*
+ 
+predicates
+
+nondeterm memb(integer,list)
+union(list, list, list)
+intersect(list,list,list)
+task(list, list, list, list)
+difference(list, list, list)
+ 
+clauses
+
+
+memb(X,[X|_]).
+memb(X,[_|T]) :- 
+	memb(X,T).
+	
+union([],L,L). 
+	
+union([H|T],L,L1) :- 
+	memb(H,L),
+	!,
+ 	union(T,L,L1).
+ 	
+union([H|T],L,[H|L1]) :-
+ 	union(T,L,L1).
+
+intersect([],_,[]).
+
+intersect([H|T],Y,[H|R]) :- 
+	memb(H,Y),
+	intersect(T,Y,R), 
+	!.
+	
+intersect([_|T],Y,R) :- 
+	intersect(T,Y,R), 
+	!.
+
+difference([],_,[]).
+
+difference([H|T],L,L1):-
+	memb(H,L), 
+	!, 
+ 	difference(T,L,L1).
+
+difference([H|T],L,[H|L1]):-
+	difference(T,L,L1). 
+
+	
+task(X, Y, Z, R):-
+	U=[0,1,2,3,4,5,6,7,8,9],
+	difference(U, X, UX),
+	difference(UX, Y, UXY),
+	difference(UXY, Z, UXYZ),
+	
+	intersect(X,Y,X_Y),
+	intersect(Y,Z,Y_Z),
+	union(X_Y, Y_Z, XYZ),
+	
+	union(XYZ, UXYZ, R).
+	
+
+
+goal
+task([1,2,3], [2,3,4], [5,3,4], R).
