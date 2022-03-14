@@ -1,0 +1,21 @@
+DOMAINS
+list=integer*
+
+PREDICATES
+
+nondeterm min_list(list,integer)
+
+CLAUSES
+
+min_list([X],X).
+
+min_list([H|Tail],H):-
+	min_list(Tail,M),
+	H<M,
+	!.
+	
+min_list([_|Tail],M):-
+	min_list(Tail,M).
+
+GOAL
+min_list([0, 1, 2, -4, -5, 2, 121, -3],X).
