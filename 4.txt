@@ -1,0 +1,43 @@
+domains
+
+list=integer*
+
+
+predicates
+discard_positive(list, list)
+nondeterm max(list, integer)
+nondeterm task(list,list)
+nondeterm res(list, list)
+
+
+clauses
+discard_positive([], []).
+discard_positive([H|T], PT):-
+	H > -1,
+	!,
+	discard_positive(T, PT).
+discard_positive([H|T], [H|PT]):-
+	discard_positive(T, PT).
+
+max([X],X) :- !.
+max([], 0) :- !.
+
+max([H|T],H) :- max(T,U), H>U.
+max([H|T],X) :- max(T,X), X>H.
+
+
+task([],[]).
+task([H|T],[M|R]) :-
+	discard_positive([H|T], RES),
+	max(RES,M),
+	task(T,R).
+
+res(S, RES):-
+	task(S,R),
+	discard_positive(R, RES).
+
+
+
+goal
+
+res([1,4,-2,3,-5,-6, 10, 10, 10], Z).
