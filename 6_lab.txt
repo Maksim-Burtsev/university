@@ -1,0 +1,24 @@
+domains
+treetype=nil; tree(integer,treetype,treetype)
+predicates
+positive_sum(treetype, integer)
+
+clauses
+positive_sum(nil,0). 
+
+positive_sum(tree(X,L,R),N):-
+	positive_sum(L,N1), 
+	positive_sum(R,N2),
+	X>0,!, 
+	N=N1+N2+X.
+	
+positive_sum(tree(X,L,R),N):-
+	positive_sum(L,N1), 
+	positive_sum(R,N2),
+	X<1,
+	N=N1+N2.
+  
+goal
+positive_sum(tree(7,
+tree(-2, tree(4,nil,nil), tree(-3,nil,nil)),
+tree(-8, tree(9, tree(1,nil,nil), tree(-5,nil,nil)), nil)), R).
