@@ -1,0 +1,52 @@
+domains
+data=date(day, month, year)
+month=symbol
+day,year = integer
+name = n(symbol, symbol, symbol)
+
+predicates
+
+vesna(symbol, integer)
+person(data, name)
+nondeterm spouses(name, name)
+nondeterm task(name, name)
+
+
+clauses
+
+vesna(march, 1):- !.
+vesna(april, 1):- !.
+vesna(may, 1):- !.
+vesna(_, 0). 
+
+person(date(1, semptember, 1986), n(ivanov, ivan, ivanivich)).
+person(date(2, april, 1987), n(petrov, oleg, vladimirovish)).
+person(date(3, march, 1988), n(popov, alexey, petrovich)).
+person(date(4, december, 1989), n(smirnov, ilya, alexeevich)).
+person(date(5, january, 1990), n(kyznecov, denis, andreevich)).
+
+
+person(date(6, march, 1991), n(mihailova, alena, vasilievna)).
+person(date(7, may, 1992), n(grishina, olesya, nikolaevna)).
+person(date(8, april, 1993), n(sokolova, elena, igorevna)).
+person(date(9, july, 1994), n(chernova, valentina, grigorievna)).
+person(date(10, march, 1995), n(matveeva, svetlana, victorovna)).
+
+spouses(n(ivanov, ivan, ivanivich), n(mihailova, alena, vasilievna)).
+spouses(n(petrov, oleg, vladimirovish), n(grishina, olesya, nikolaevna)).
+spouses(n(popov, alexey, petrovich),n(sokolova, elena, igorevna)).
+spouses(n(smirnov, ilya, alexeevich), n(chernova, valentina, grigorievna)).
+spouses(n(kyznecov, denis, andreevich), n(matveeva, svetlana, victorovna)).
+
+task(M, W):-
+	spouses(M, W),
+	person(date(_, M_M, _), M),
+	person(date(_, W_M, _), W),
+	vesna(M_M, M_R),
+	vesna(W_M, W_R),
+	RES = M_R + W_R,
+	RES = 1.
+	
+
+goal
+task(X, Y).
