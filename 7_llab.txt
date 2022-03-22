@@ -118,7 +118,7 @@ do(Res) :-
 	readchar(Ch),	
 	
 	run(Ch,[],IRes),
-	DL = [n(ivanov, ivan, ivanivich),n(petrov, oleg, vladimirovish), n(popov, alexey, petrovich), n(smirnov, ilya, alexeevich), n(kyznecov, denis, andreevich),  n(mihailova, alena, vasilievna), n(grishina, olesya, nikolaevna), n(sokolova, elena, igorevna), 
+	DL = [n(ivanov, ivan, ivanivich),n(petrov, oleg, vladimirovish), n(popov, alexey, petrovich), n(smirnov, ilya, alexeevich), n(kyznecov, denis, andreevich),  n(mihailova, alena, vasilievna), n(grishina, olesya, nikolaevna), n(sokolova, elena, igorevna)], 
 	
 	append(DL,IRes, Res).
 	
