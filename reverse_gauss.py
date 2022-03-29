@@ -6,19 +6,19 @@ EXAMPLE = [[1, 1, 3],
            [-2, -4, -4]]
 
 def main():
-    n = int(input('Введите количество неизвестных: '))
+    # n = int(input('Введите количество неизвестных: '))
 
-    # n = 3
+    n = 3
     a = np.zeros((n,2*n))
 
-    # for i in range(len(EXAMPLE)):
-    #     for j in range(len(EXAMPLE[i])):
-    #         a[i][j] = float(EXAMPLE[i][j])
+    for i in range(len(EXAMPLE)):
+        for j in range(len(EXAMPLE[i])):
+            a[i][j] = float(EXAMPLE[i][j])
 
-    print('Введите коэффиценты матрицы')
-    for i in range(n):
-        for j in range(n):
-            a[i][j] = float(input( 'a['+str(i)+']['+ str(j)+']='))
+    # print('Введите коэффиценты матрицы')
+    # for i in range(n):
+    #     for j in range(n):
+    #         a[i][j] = float(input( 'a['+str(i)+']['+ str(j)+']='))
 
     for i in range(len(a)):
         for j in range(len(a[i])):

@@ -10,8 +10,8 @@ def main():
     z0 = 0
     count = 1
 
-    e = float(input('Допустимая погрешность (e): '))
-
+    # e = float(input('Допустимая погрешность (e): '))
+    e = 0.001
     print('\nCount\tx\ty\tz\n')
 
     condition = True

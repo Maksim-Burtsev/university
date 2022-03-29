@@ -7,19 +7,19 @@ EXAMPLE = [[8.0, 7.0,   3.0,  18.0],
 
 def main():
 
-    n = int(input('Введите количество неизвестных: '))
+    # n = int(input('Введите количество неизвестных: '))
 
-    a = np.zeros((n,n+1))
+    # a = np.zeros((n,n+1))
 
-    # n = 3
-    # a = EXAMPLE
+    n = 3
+    a = EXAMPLE
 
     x = np.zeros(n)
 
-    print('Введите количество коэффицентвов в матрице')
-    for i in range(n):
-        for j in range(n+1):
-            a[i][j] = float(input( 'a['+str(i)+']['+ str(j)+']='))
+    # print('Введите количество коэффицентвов в матрице')
+    # for i in range(n):
+    #     for j in range(n+1):
+    #         a[i][j] = float(input( 'a['+str(i)+']['+ str(j)+']='))
 
     for i in range(n):
         if a[i][i] == 0.0:
@@ -41,7 +41,7 @@ def main():
         
         x[i] = x[i]/a[i][i]
 
-    print('\nRequired solution is: ')
+    print('\nРешение: ')
     for i in range(n):
         print(f'X{i} = {x[i]:.2f}\t')
 
