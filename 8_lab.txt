@@ -1,0 +1,35 @@
+ domains
+ str_list = string*
+predicates
+permutation(str_list, str_list)
+bubble(str_list, str_list)
+nondeterm str_a_list(string,str_list)
+nondeterm task(string,str_list) 
+clauses
+
+str_a_list("",[]). 
+ str_a_list(S,[H|T]) :-
+	fronttoken(S,H,S1), 
+	str_a_list(S1,T).
+
+permutation([X,Y|T],[Y,X|T]):-
+	str_len(X, LX),
+	str_len(Y, LY),
+	LX>LY,!.
+permutation([X|T],[X|T1]):-
+	permutation(T,T1).
+
+bubble(L,L1):-
+ permutation(L,LL), 
+	!,
+	bubble(LL,L1). 
+	
+bubble(L,L). 
+
+task(S, RES):-
+	str_a_list(S, SR),
+	bubble(SR, RES).
+
+ goal
+ task("i vot posadil ded repky virosla bolshaya prebolshaya i prishlo vremya tyanyt repky", RES).
+ 
