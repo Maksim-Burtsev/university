@@ -1,0 +1,37 @@
+global domains
+ file = f
+predicates
+ readfile(file).
+ chetnoe(integer).
+ writechetnoe(file, integer).
+
+clauses
+
+chetnoe(S) :-
+	0=S mod 2.
+
+
+
+writechetnoe(f, C):-
+	chetnoe(C),
+	writedevice(f),
+	write(C), !.
+
+writechetnoe(f, C) :- !.
+
+
+ readfile(f) :-
+	 writedevice(screen),
+	 write("Enter integer (no integer - end of input)"),nl,
+	 readint(C),
+	 C<>'0',!,
+	 writechetnoe(f, C),
+	 readfile(f).
+ 
+ readfile(f) :-
+	closefile(f).
+goal
+ write("Enter file name: "),
+ readln(F_N),
+ openwrite(f,F_N),
+ readfile(f).
