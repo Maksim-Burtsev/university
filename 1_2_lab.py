@@ -3,11 +3,12 @@ import sqlite3
 conn = sqlite3.connect('konfeti.db')
 cur = conn.cursor()
 
-cur.execute("""CREATE TABLE customers(
+cur.execute("""
+CREATE TABLE customers(
   customer_id INTEGER PRIMARY KEY,
   surname TEXT,
   city TEXT
-  );""")
+);""")
 
 cur.execute("""
 CREATE TABLE sets(

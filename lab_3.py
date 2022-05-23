@@ -38,10 +38,6 @@ cur = conn.cursor()
 # INNER JOIN customers ON orders_finally.customer_id=customers.customer_id
 # """)
 
-# cur.execute("""
-# SELECT * FROM orders_finally
-# WHERE date BETWEEN "10.12.00" AND "25.12.00"
-# """)
 
 # 5. Включите в запрос 3 суммарную стоимость заказа.
 # cur.execute("""
